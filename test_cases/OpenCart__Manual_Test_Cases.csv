@@ -1,0 +1,65 @@
+Test Case ID,Test Scenario,Test Steps,Test Data,Expected Result,Severity,Priority,Test Type,Actual Result,Status,Remarks,Module,Automated
+OPC-REG-001,Register with valid details,Navigate to registration > Fill form with valid data > Submit,"First: John, Last: Doe, Email: validEmail@gmail.com, Password: ValidPass123",User is redirected to account/success page,Medium,High,Positive,,Pass,,Registration,Yes
+OPC-REG-002,Register with existing email,Navigate to registration > Fill form with already registered email > Submit,"First: John, Last: Doe, Email: validEmail@gmail.com, Password: ValidPass123",Error: E-Mail Address is already registered!,High,High,Negative,,Pass,,Registration,Yes
+OPC-REG-003,Register with empty fields,Navigate to registration > Leave all fields empty > Submit,All fields empty,Error messages for all mandatory fields,High,High,Negative,,Pass,,Registration,Yes
+OPC-REG-004,Register with invalid email format,Navigate to registration > Fill form with invalid email format > Submit,Email: test@invalid,Error: E-Mail Address does not appear to be valid!,Medium,Medium,Negative,,Pass,,Registration,Yes
+OPC-REG-005,Register with special characters in name,Navigate to registration > Use special characters in name fields > Submit,"First: John$, Last: D@e",Registration should fail,Medium,Medium,Negative,Registration succeeded. No error message displayed. User redirected to account/success.,Fail,Bug: Registration accepted invalid name input. Both frontend and backend validation missing.,Registration,Yes
+OPC-REG-006,Register with whitespace only,Navigate to registration > Use only spaces in form fields > Submit,"First: '   ', Last: '   ', Email: '   ', Password: '   '",Validation errors for all fields,Medium,Medium,Negative,,Pass,,Registration,Yes
+OPC-REG-007,Password length boundary tests,"Try registering with different password lengths (5, 6, 40, 41 chars)","Passwords: 12345, 123456, a*40, a*41",Only 4 to 20 character passwords should be accepted,Low,Medium,Boundary,,Pass,,Registration,Yes
+OPC-REG-008,Registration while logged in,Login > Try accessing registration page > Try registering again,Logged-in user data,User should be redirected or shown already registered warning,Medium,High,Negative,,Pass,,Registration,Yes
+OPC-LOGIN-001,Login with valid credentials,Navigate to login > Enter valid credentials > Submit,"Email: validEmail@gmail.com, Password: ValidPass123",User is redirected to account dashboard,Medium,High,Positive,,Pass,,Login,Yes
+OPC-LOGIN-002,Login with uppercase email,Navigate to login > Enter email in uppercase > Submit,"Email: VALIDEMAIL@GMAIL.COM, Password: ValidPass123",Login successful  case-insensitive email handling,Low,Medium,Positive,,Pass,,Login,Yes
+OPC-LOGIN-003,Login with spaces in credentials,Navigate to login > Enter credentials with leading/trailing spaces > Submit,"Email: '  validEmail@gmail.com  ', Password: '  ValidPass123  '",Login successful  spaces are trimmed,Low,Medium,Positive,,Pass,,Login,Yes
+OPC-LOGIN-004,Login with incorrect password,Navigate to login > Enter valid email with wrong password > Submit,"Email: validEmail@gmail.com, Password: WrongPass",Error: Warning - No match for E-Mail Address and/or Password,Medium,High,Negative,,Pass,,Login,Yes
+OPC-LOGIN-005,Login with blank fields,Navigate to login > Leave email and password blank > Submit,"Email: '', Password: ''",Error: No match or rate limit warning,High,High,Negative,,Pass,,Login,Yes
+OPC-LOGIN-006,Login with unregistered email,Navigate to login > Use non-existent email > Submit,"Email: nonexistent@example.com, Password: AnyPassword",Error: No match or rate limit warning,Medium,Medium,Negative,,Pass,,Login,Yes
+OPC-LOGIN-007,SQL injection attempt in password field,Navigate to login > Enter SQL payload in password field > Submit,"Email: validEmail@gmail.com, Password: ' OR '1'='1",Login fails with security warning,High,High,Security,,Pass,,Login,Yes
+OPC-LOGIN-008,SQL injection attempt in email field,Navigate to login > Enter SQL payload in email field > Submit,"Email: email'or1=1@example.com, Password: any_password",Login fails with security warning,High,High,Security,,Pass,,Login,Yes
+OPC-LOGIN-009,Login after multiple failed attempts,Navigate to login > Attempt login with wrong password 5 times,"Email: validEmail@gmail.com, Password: WrongPass",Login blocked or warning message shown,High,High,Edge,,Pass,,Login,Yes
+OPC-LOGIN-010,Access login page while already logged in,Login > Try to access login page again,"Email: validEmail@gmail.com, Password: ValidPass123",User redirected to account/account,Medium,Medium,Negative,,Pass,,Login,Yes
+OPC-HDR-001,Change currency to Euro,Navigate to homepage > Change currency to Euro,None,Prices should update to reflect Euro,Medium,High,Functional,,Pass,,Navigation,Yes
+OPC-HDR-002,Access My Account (unauthenticated),Navigate to My Account > Click Login,None,Redirected to login page,Medium,High,Functional,,Pass,,Navigation,Yes
+OPC-HDR-003,Access Wish List (unauthenticated),Navigate to Wish List,None,Redirected to login page,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-HDR-004,Access Shopping Cart,Navigate to Cart,None,Shopping cart page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-HDR-005,Access Checkout (unauthenticated),Navigate to Checkout,None,Redirected to cart with empty message,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-001,Navigate to Desktops,Navigate to Desktops > Mac,None,Desktops product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-002,Navigate to Laptops & Notebooks,Navigate to Laptops & Notebooks,None,Laptops product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-003,Navigate to Components,Navigate to Components,None,Components product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-004,Navigate to Tablets,Navigate to Tablets,None,Tablets product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-005,Navigate to Software,Navigate to Software,None,Software product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-006,Navigate to Phones & PDAs,Navigate to Phones & PDAs,None,Phones & PDAs page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-007,Navigate to Cameras,Navigate to Cameras,None,Cameras product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-PROD-008,Navigate to MP3 Players,Navigate to MP3 Players,None,MP3 Players product page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ACC-001,Access My Account (authenticated),Login > Access My Account,validEmail@gmail.com / ValidPass123,Account dashboard is displayed,Medium,High,Functional,,Pass,,Navigation,Yes
+OPC-ACC-002,Edit Account Information,Login > Edit Account Info,validEmail@gmail.com / ValidPass123,Edit account form is displayed,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ACC-003,Change Password,Login > Change Password,validEmail@gmail.com / ValidPass123,Password change form is displayed,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ACC-004,Access Payment Methods,Login > Access Payment Methods,validEmail@gmail.com / ValidPass123,Payment method page is shown,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ACC-005,Access Address Book,Login > Access Address Book,validEmail@gmail.com / ValidPass123,Address book page is shown,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ACC-006,Access Wish List (authenticated),Login > Access Wish List,validEmail@gmail.com / ValidPass123,Wish list page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-001,View Order History,Login > Access Order History,validEmail@gmail.com / ValidPass123,Order history is visible,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-002,Access Subscriptions,Login > Access Subscriptions,validEmail@gmail.com / ValidPass123,Subscriptions page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-003,Access Downloads,Login > Access Downloads,validEmail@gmail.com / ValidPass123,Downloads page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-004,View Reward Points,Login > Access Reward Points,validEmail@gmail.com / ValidPass123,Reward points page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-005,View Return Requests,Login > Access Return Requests,validEmail@gmail.com / ValidPass123,Return requests page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-ORD-006,View Transactions,Login > Access Transactions,validEmail@gmail.com / ValidPass123,Transactions page is displayed,Low,Medium,Functional,,Pass,,Navigation,Yes
+OPC-AFF-001,Access Affiliate Account,Login > Access Affiliate Account,validEmail@gmail.com / ValidPass123,Affiliate info is shown,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-AFF-002,Register Affiliate Account,Login > Register Affiliate Account,Affiliate info,Affiliate registration success,Medium,Medium,Functional,,Pass,,Navigation,Yes
+OPC-AFF-003,Newsletter Subscription,Login > Access Newsletter > Subscribe,validEmail@gmail.com / ValidPass123,Subscription update successful,Low,Low,Functional,,Pass,,Navigation,Yes
+OPC-FOOT-001,Logout,Login > Logout,validEmail@gmail.com / ValidPass123,User is logged out and redirected,Medium,High,Functional,,Pass,,Navigation,Yes
+OPC-CART-001,Add single product to cart,Navigate to product > Add HP LP3065 > Check cart,HP LP3065,Product and correct pricing details should appear,Medium,High,Functional,,Pass,,Cart,Yes
+OPC-CART-002,Add multiple quantities,Add MacBook to cart 3 times,MacBook,Quantity should be updated to 3,Low,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-003,Edit quantity in cart,Add MacBook > Set quantity to 2 in cart,MacBook,Cart should show updated quantity,Medium,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-004,Remove product from cart,Add Canon EOS 5D > Remove it from cart,Canon EOS 5D,Product removed and empty cart message shown,Medium,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-005,Cart persists after login,Add iPhone > Login > Check cart,iPhone,Cart should still contain product after login,Medium,High,Functional,,Pass,,Cart,Yes
+OPC-CART-006,Add multiple different products,Add iMac and MacBook Air > Check cart,"iMac, MacBook Air",Both products should appear in cart,Medium,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-007,Cart total updates correctly,Add MacBook Air > Set quantity to 2 > Check total,MacBook Air,Grand total should match updated quantity,High,High,Functional,,Pass,,Cart,Yes
+OPC-CART-008,Default quantity is one,Add iPhone without setting quantity,iPhone,Quantity should default to 1,Low,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-009,Zero quantity removes product,Add Apple Cinema > Set quantity to 0 > Update,"Apple Cinema 30""",Cart should be empty,Medium,Medium,Functional,,Pass,,Cart,Yes
+OPC-CART-010,Empty cart visual validation,Access cart when empty,None,Empty cart message and layout should be correct,Low,Low,Functional,,Pass,,Cart,Yes
+OPC-CHK-001,Happy path checkout with single product,Login > Add HP LP3065 > Proceed to checkout > Complete order,HP LP3065,User sees success message and order completes,High,High,Positive,,Pass,,Checkout,Yes
+OPC-CHK-002,Checkout with multiple products,Login > Add iMac & MacBook Air > Checkout,"iMac, MacBook Air",Order completes with success message,High,High,Positive,,Pass,,Checkout,Yes
+OPC-CHK-003,Checkout with empty cart,Login > Add product > Remove it > Attempt checkout,MacBook Air,Checkout is blocked and user remains on cart page,High,Medium,Negative,,Pass,,Checkout,Yes
+OPC-CHK-004,Edit quantity in cart then checkout,Login > Add MacBook > Set quantity to 2 > Checkout,MacBook,Order completes and quantity is reflected in order,Medium,Medium,Functional,Shipping method button not found. Checkout blocked. TimeoutException raised.,Fail,Bug: No shipping methods are enabled from admin side. Checkout cannot proceed without it.,Checkout,Yes
+OPC-CHK-005,Checkout missing shipping step (defect reproduction),Login > Add MacBook > Edit quantity > Checkout,MacBook,"Checkout should not complete, and shipping method is missing",High,High,Negative,,Pass,,Checkout,Yes
+OPC-CHK-006,Cancel checkout and verify cart,Login > Add HP LP3065 > Start checkout > Navigate back,HP LP3065,Product remains in cart after cancelling checkout,Medium,Medium,Functional,,Pass,,Checkout,Yes
+OPC-CHK-007,Checkout then view order history,Login > Add MacBook Air > Checkout > View Order History,MacBook Air,Order should appear in order history,High,High,Functional,,Pass,,Checkout,Yes
