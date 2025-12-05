@@ -1,6 +1,0 @@
-Module,Fail,Pass,Total Test Cases,Passed,Failed,Pass %,Fail %
-Cart,0,10,10,10,0,100.0,0.0
-Checkout,1,6,7,6,1,85.7,14.3
-Login,0,10,10,10,0,100.0,0.0
-Navigation,0,29,29,29,0,100.0,0.0
-Registration,1,7,8,7,1,87.5,12.5
