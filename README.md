@@ -10,7 +10,7 @@ Login testing covered correct and incorrect credentials, error messages, and bas
 
 Cart testing included adding products, changing quantities, and removing items. During checkout testing, I verified address input, payment selection, and order summary behaviour. I found an issue where the payment method dropdown did not load due to missing configuration. This was logged as a major defect and closed after the setup was fixed.
 
-In total, I executed 64 manual UI test cases. Most of them passed on the first run. Two tests failed initially, both coming from negative or edge-case scenarios. No critical issues were found, and all core shopping flows worked correctly after fixes and retesting.
+In total, I executed 66 manual UI test cases. Most of them passed on the first run. Two tests failed initially, both coming from negative or edge-case scenarios. No critical issues were found, and all core shopping flows worked correctly after fixes and retesting.
 
 All test cases are documented in xlsx format, with clear steps, inputs, and expected results. Test coverage is tracked in a separate file, and all defects are logged in an Excel bug report with screenshots as evidence. These files are included in this repository so the full testing process is transparent.
 
