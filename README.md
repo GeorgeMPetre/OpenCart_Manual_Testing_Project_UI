@@ -1,129 +1,23 @@
 # OpenCart Manual Testing Project (UI)
 
-## About this project
+This repository contains a manual UI testing project for the OpenCart e-commerce application. I created it as part of my QA portfolio to show how I approach testing from a user point of view, how I document my work, and how I report issues clearly.
 
-This repository showcases a hands-on manual UI testing project for the OpenCart e-commerce platform. The main focus is on how a real user interacts with the system and whether the core shopping flows behave as expected.
+The focus of the testing was on the main customer journeys. I wanted to see if a normal user can register, log in, browse products, add items to the cart, and complete checkout without issues. I tested both happy paths and negative scenarios, not just what is supposed to work but also what could break.
 
-The project was created as a portfolio piece to demonstrate practical QA skills, clear documentation, and structured defect reporting. Industry best practices based on IEEE 829 (2008) were followed, but the goal was always practical testing rather than theory.
+I tested the registration flow using valid data, invalid inputs, and edge cases. One issue I found was that the first-name field accepted special characters, which showed missing input validation. This was logged as a defect and later closed after retesting.
 
----
+Login testing covered correct and incorrect credentials, error messages, and basic session behaviour. Product browsing focused on layout consistency, navigation, and whether product information was displayed correctly across pages.
 
-## What I tested
+Cart testing included adding products, changing quantities, and removing items. During checkout testing, I verified address input, payment selection, and order summary behaviour. I found an issue where the payment method dropdown did not load due to missing configuration. This was logged as a major defect and closed after the setup was fixed.
 
-I focused on the most important customer-facing areas of the store:
+In total, I executed 64 manual UI test cases. Most of them passed on the first run. Two tests failed initially, both coming from negative or edge-case scenarios. No critical issues were found, and all core shopping flows worked correctly after fixes and retesting.
 
-* **Registration**
-  Creating accounts using valid, invalid, and edge-case inputs
+All test cases are documented in CSV format, with clear steps, inputs, and expected results. Test coverage is tracked in a separate file, and all defects are logged in an Excel bug report with screenshots as evidence. These files are included in this repository so the full testing process is transparent.
 
-* **Login**
-  Authentication flow, validation messages, and failure handling
+Testing was done manually using a local OpenCart installation running on XAMPP. I used Chrome, Firefox, and Edge to check basic cross-browser behaviour. The goal was not automation, but understanding the system and user experience through hands-on testing.
 
-* **Product browsing**
-  Page layout, product listings, navigation, and basic responsiveness
+This project reflects how I work as a QA engineer: start from the user flow, test with intent, pay attention to details, and document findings in a way that helps others understand and fix issues.
 
-* **Cart management**
-  Adding products, updating quantities, and removing items
-
-* **Checkout**
-  Address entry, payment selection, and order summary behaviour
-
-* **UI and UX checks**
-  Alignment, readability, spacing, and general consistency
-
----
-
-## How the testing was done
-
-* Manual, black-box testing
-* Functional, UI, negative, and boundary scenarios
-* Tests executed on a local OpenCart installation
-* Browsers used: Chrome, Firefox, and Edge
-
-The emphasis was on realistic user behaviour rather than scripted clicks only.
-
----
-
-## Test assets in this repo
-
-You will find the following files and folders:
-
-* **OpenCart_Manual_Test_Cases.csv**
-  64 detailed test cases with steps, inputs, and expected results
-
-* **OpenCart_Test_Coverage_Summary.csv**
-  A simple coverage matrix showing what was tested and where
-
-* **OpenCart_Bug_Report.xlsx**
-  Logged defects with severity, priority, and screenshots
-
-* **Screenshots/**
-  Visual proof from key test executions
-
----
-
-## Test results (short version)
-
-| Metric           | Result |
-| ---------------- | ------ |
-| Total test cases | 64     |
-| Passed           | 62     |
-| Failed           | 2      |
-| Defects raised   | 2      |
-| Critical issues  | 0      |
-
-Both failed tests were expected findings from negative and edge-case testing and were fixed after retesting.
-
----
-
-## Defects found
-
-| ID         | Issue                                                 | Severity | Status |
-| ---------- | ----------------------------------------------------- | -------- | ------ |
-| BUG-REG-01 | Registration accepts special characters in first name | Minor    | Closed |
-| BUG-CHK-02 | Payment method dropdown not loading during checkout   | Major    | Closed |
-
-More details and screenshots are available in **OpenCart_Bug_Report.xlsx**.
-
----
-
-## Key takeaways
-
-* Input validation on the registration form needs improvement.
-* Checkout issues were caused by configuration rather than UI logic.
-* The UI is generally consistent across supported browsers.
-* All critical shopping flows worked as expected after fixes.
-
----
-
-## Tools and setup
-
-* OpenCart v4.1.0.3
-* Localhost environment using XAMPP
-* Chrome, Firefox, Edge
-* Test cases and reports maintained in CSV and Excel
-
----
-
-## How to review this project
-
-If you are reviewing this repo:
-
-1. Start with the test cases to understand coverage
-2. Check the bug report to see how issues were documented
-3. Review screenshots for execution evidence
-
----
-
-## Author
-
-**George Petre**
-QA Engineer
-
-* GitHub: [https://github.com/GeorgeMPetre](https://github.com/GeorgeMPetre)
-* Portfolio: [https://georgempetre.github.io](https://georgempetre.github.io)
-
----
-
-## Final note
-
-This project reflects how I approach manual testing in real scenarios: understand the user flow, test with intent, document clearly, and report issues in a way that helps teams fix them quickly.
+Author: George Petre
+GitHub: [https://github.com/GeorgeMPetre](https://github.com/GeorgeMPetre)
+Portfolio: [https://georgempetre.github.io](https://georgempetre.github.io)
