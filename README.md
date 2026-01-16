@@ -1,118 +1,116 @@
 # OpenCart Manual Testing Project (UI)
 
-## Project Overview
+## About this project
 
-This repository contains a manual UI testing project for the OpenCart e-commerce application. The goal is to validate usability, visual consistency, and core customer workflows such as registration, login, cart, and checkout.
+This repository showcases a hands-on manual UI testing project for the OpenCart e-commerce platform. The main focus is on how a real user interacts with the system and whether the core shopping flows behave as expected.
 
-All tests were designed and executed using structured QA practices aligned with the IEEE 829 (2008) standard, with clear traceability between test cases, coverage, and defects.
+The project was created as a portfolio piece to demonstrate practical QA skills, clear documentation, and structured defect reporting. Industry best practices based on IEEE 829 (2008) were followed, but the goal was always practical testing rather than theory.
 
 ---
 
-## What Was Tested
+## What I tested
 
-The following customer-facing modules were covered:
+I focused on the most important customer-facing areas of the store:
 
 * **Registration**
+  Creating accounts using valid, invalid, and edge-case inputs
 
-  * Positive, negative, and boundary input validation
 * **Login**
+  Authentication flow, validation messages, and failure handling
 
-  * Authentication behaviour and error messages
-* **Product Browsing**
+* **Product browsing**
+  Page layout, product listings, navigation, and basic responsiveness
 
-  * Layout consistency, product listing, navigation
-* **Cart Management**
+* **Cart management**
+  Adding products, updating quantities, and removing items
 
-  * Add, remove, and update quantity actions
-* **Checkout Process**
+* **Checkout**
+  Address entry, payment selection, and order summary behaviour
 
-  * Address entry, payment selection, order summary
-* **UI & UX Validation**
-
-  * Alignment, readability, responsiveness
-
----
-
-## Test Approach
-
-* **Testing type:** Manual UI / Functional
-* **Method:** Black-box testing
-* **Test types:** Functional, UI, Negative, Boundary, Regression
-* **Documentation standard:** IEEE 829 (2008)
-
-Tests were executed against a local OpenCart deployment with predefined test data.
+* **UI and UX checks**
+  Alignment, readability, spacing, and general consistency
 
 ---
 
-## Test Artifacts
+## How the testing was done
 
-This repository includes:
+* Manual, black-box testing
+* Functional, UI, negative, and boundary scenarios
+* Tests executed on a local OpenCart installation
+* Browsers used: Chrome, Firefox, and Edge
+
+The emphasis was on realistic user behaviour rather than scripted clicks only.
+
+---
+
+## Test assets in this repo
+
+You will find the following files and folders:
 
 * **OpenCart_Manual_Test_Cases.csv**
+  64 detailed test cases with steps, inputs, and expected results
 
-  * 64 detailed test cases with steps, inputs, expected and actual results
 * **OpenCart_Test_Coverage_Summary.csv**
+  A simple coverage matrix showing what was tested and where
 
-  * Module-level coverage and traceability
 * **OpenCart_Bug_Report.xlsx**
+  Logged defects with severity, priority, and screenshots
 
-  * Logged defects with severity, priority, and evidence
 * **Screenshots/**
-
-  * Visual proof of executed test scenarios
-
----
-
-## Test Execution Summary
-
-| Metric                        | Result |
-| ----------------------------- | ------ |
-| Total test cases              | 64     |
-| Passed                        | 62     |
-| Failed                        | 2      |
-| Defects logged                | 2      |
-| Critical defects              | 0      |
-| Closed defects (after retest) | 2      |
+  Visual proof from key test executions
 
 ---
 
-## Defects Overview
+## Test results (short version)
 
-| ID         | Title                                                 | Severity | Status |
+| Metric           | Result |
+| ---------------- | ------ |
+| Total test cases | 64     |
+| Passed           | 62     |
+| Failed           | 2      |
+| Defects raised   | 2      |
+| Critical issues  | 0      |
+
+Both failed tests were expected findings from negative and edge-case testing and were fixed after retesting.
+
+---
+
+## Defects found
+
+| ID         | Issue                                                 | Severity | Status |
 | ---------- | ----------------------------------------------------- | -------- | ------ |
 | BUG-REG-01 | Registration accepts special characters in first name | Minor    | Closed |
 | BUG-CHK-02 | Payment method dropdown not loading during checkout   | Major    | Closed |
 
-Full details are available in `OpenCart_Bug_Report.xlsx`.
+More details and screenshots are available in **OpenCart_Bug_Report.xlsx**.
 
 ---
 
-## Key Observations
+## Key takeaways
 
-* Registration form lacks proper input sanitisation for special characters.
-* Checkout payment dropdown failed due to configuration, not UI logic.
-* UI alignment and responsiveness are consistent across major browsers.
-* All core workflows passed after fixes and retesting.
-
----
-
-## Tools and Environment
-
-* **Application:** OpenCart v4.1.0.3
-* **Execution environment:** Localhost (XAMPP)
-* **Browsers:** Chrome, Firefox, Edge
-* **Test documentation:** Excel and CSV templates
-* **Defect tracking:** Excel-based bug report
-* **Evidence:** Screenshots per module
+* Input validation on the registration form needs improvement.
+* Checkout issues were caused by configuration rather than UI logic.
+* The UI is generally consistent across supported browsers.
+* All critical shopping flows worked as expected after fixes.
 
 ---
 
-## How to Use This Repository
+## Tools and setup
 
-1. Review the test cases in `OpenCart_Manual_Test_Cases.csv`
-2. Check coverage in `OpenCart_Test_Coverage_Summary.csv`
-3. Inspect logged defects in `OpenCart_Bug_Report.xlsx`
-4. Review screenshots for execution evidence
+* OpenCart v4.1.0.3
+* Localhost environment using XAMPP
+* Chrome, Firefox, Edge
+* Test cases and reports maintained in CSV and Excel
+
+---
+
+## How to review this project
+
+If you are reviewing this repo:
+
+1. Start with the test cases to understand coverage
+2. Check the bug report to see how issues were documented
+3. Review screenshots for execution evidence
 
 ---
 
@@ -126,6 +124,6 @@ QA Engineer
 
 ---
 
-## Notes
+## Final note
 
-This project demonstrates end-to-end manual UI test design, execution, defect reporting, and traceability for a real-world e-commerce application. It is intended as a portfolio and learning project rather than a production release.
+This project reflects how I approach manual testing in real scenarios: understand the user flow, test with intent, document clearly, and report issues in a way that helps teams fix them quickly.
