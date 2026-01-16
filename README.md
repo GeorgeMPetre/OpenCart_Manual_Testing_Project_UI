@@ -12,7 +12,7 @@ Cart testing included adding products, changing quantities, and removing items. 
 
 In total, I executed 64 manual UI test cases. Most of them passed on the first run. Two tests failed initially, both coming from negative or edge-case scenarios. No critical issues were found, and all core shopping flows worked correctly after fixes and retesting.
 
-All test cases are documented in CSV format, with clear steps, inputs, and expected results. Test coverage is tracked in a separate file, and all defects are logged in an Excel bug report with screenshots as evidence. These files are included in this repository so the full testing process is transparent.
+All test cases are documented in xlsx format, with clear steps, inputs, and expected results. Test coverage is tracked in a separate file, and all defects are logged in an Excel bug report with screenshots as evidence. These files are included in this repository so the full testing process is transparent.
 
 Testing was done manually using a local OpenCart installation running on XAMPP. I used Chrome, Firefox, and Edge to check basic cross-browser behaviour. The goal was not automation, but understanding the system and user experience through hands-on testing.
 
