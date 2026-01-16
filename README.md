@@ -1,103 +1,131 @@
-OpenCart Manual Testing Project (UI)
-Project Overview
+# OpenCart Manual Testing Project (UI)
 
-The OpenCart Manual Testing Project (UI) focuses on verifying the user interface, usability, and key functional workflows of the OpenCart e-commerce application.
-All tests were designed and executed following the IEEE 829 (2008) standard to ensure consistency, traceability, and completeness across the testing lifecycle.
+## Project Overview
 
+This repository contains a manual UI testing project for the OpenCart e-commerce application. The goal is to validate usability, visual consistency, and core customer workflows such as registration, login, cart, and checkout.
 
-Objectives
+All tests were designed and executed using structured QA practices aligned with the IEEE 829 (2008) standard, with clear traceability between test cases, coverage, and defects.
 
-Validate that the OpenCart UI meets functional and usability expectations.
+---
 
-Confirm the correct behavior of core customer-facing workflows (registration, login, cart, and checkout).
+## What Was Tested
 
-Detect and document UI layout inconsistencies and validation issues.
+The following customer-facing modules were covered:
 
-Provide complete traceability between test cases, coverage, and defect reports.
+* **Registration**
 
+  * Positive, negative, and boundary input validation
+* **Login**
 
-Scope of Testing
-Module	Description:
-Registration	Validate account creation with positive, negative, and boundary inputs.
-Login	Verify authentication and error message accuracy.
-Product Browsing	Check layout, product listing, and page responsiveness.
-Cart Management	Ensure add/remove/update quantity functionality works correctly.
-Checkout Process	Validate address entry, payment selection, and order summary.
-UI & UX Validation	Verify design alignment, readability, and element positioning.
+  * Authentication behaviour and error messages
+* **Product Browsing**
 
+  * Layout consistency, product listing, navigation
+* **Cart Management**
 
-Project Deliverables
-Artifact	Description:
-OpenCart__Manual_Test_Cases.csv	All 64 test cases with steps, inputs, expected/actual results, and status.
-OpenCart_Test_Coverage_Summary.csv	Module-wise coverage matrix linking requirements to test cases.
-OpenCart_Bug_Report.xlsx	Detailed defect log including severity, priority, and screenshots.
-Screenshots	Visual evidence of registration and checkout tests executed successfully.
+  * Add, remove, and update quantity actions
+* **Checkout Process**
 
+  * Address entry, payment selection, order summary
+* **UI & UX Validation**
 
-Test Design & Execution
+  * Alignment, readability, responsiveness
 
-Testing Approach: Black-box
+---
 
-Documentation Standard: IEEE 829 (2008)
+## Test Approach
 
-Test Types: Functional, UI, Negative, Boundary, Regression
+* **Testing type:** Manual UI / Functional
+* **Method:** Black-box testing
+* **Test types:** Functional, UI, Negative, Boundary, Regression
+* **Documentation standard:** IEEE 829 (2008)
 
-Environment: Localhost (XAMPP), OpenCart v4.1.0.3
+Tests were executed against a local OpenCart deployment with predefined test data.
 
-Entry Criteria: Application deployed, test data prepared
+---
 
-Exit Criteria: All high-priority modules executed, results recorded
+## Test Artifacts
 
-Test Execution Summary:
-Metric	Result
-Total Test Cases	64
-Passed	62
-Failed	2
-Defects Logged	2
-Critical Defects	0
-Closed Defects	2 (after retest)
+This repository includes:
 
-Defects Summary:
-ID	Title	Severity	Status
-BUG-REG-01	Registration form accepts special characters in the first-name field	Minor	Closed
-BUG-CHK-02	Payment method dropdown not loading on checkout page	Major	Closed
+* **OpenCart_Manual_Test_Cases.csv**
 
-(Full details available in OpenCart_Bug_Report.xlsx.)
+  * 64 detailed test cases with steps, inputs, expected and actual results
+* **OpenCart_Test_Coverage_Summary.csv**
 
+  * Module-level coverage and traceability
+* **OpenCart_Bug_Report.xlsx**
 
-Test Evidence
-Screenshot	Description
-	Registration with special characters accepted — defect confirmed
-	Checkout process after editing cart quantity — defect confirmed
+  * Logged defects with severity, priority, and evidence
+* **Screenshots/**
 
-  
-Observations
+  * Visual proof of executed test scenarios
 
-The registration form lacks input sanitization for special characters.
+---
 
-The payment dropdown intermittently failed to load until configuration was updated.
+## Test Execution Summary
 
-UI alignment and responsiveness are consistent across major browsers.
+| Metric                        | Result |
+| ----------------------------- | ------ |
+| Total test cases              | 64     |
+| Passed                        | 62     |
+| Failed                        | 2      |
+| Defects logged                | 2      |
+| Critical defects              | 0      |
+| Closed defects (after retest) | 2      |
 
-All critical workflows (register, login, cart, checkout) passed after retest.
+---
 
+## Defects Overview
 
-Tools & Environment
-Category	Tool / Environment
-Testing Type	Manual (UI / Functional)
-Documentation Tools	Excel, CSV Templates
-Application Version	OpenCart v4.1.0.3
-Execution Environment	Localhost via XAMPP
-Defect Tracking	Excel Bug Report
-Evidence	Screenshots attached per module
+| ID         | Title                                                 | Severity | Status |
+| ---------- | ----------------------------------------------------- | -------- | ------ |
+| BUG-REG-01 | Registration accepts special characters in first name | Minor    | Closed |
+| BUG-CHK-02 | Payment method dropdown not loading during checkout   | Major    | Closed |
 
+Full details are available in `OpenCart_Bug_Report.xlsx`.
 
-Author
+---
 
-George Petre
-Sturry, CT2 0HN, UK
-george.petre23@gmail.com
+## Key Observations
 
-georgempetre.github.io
+* Registration form lacks proper input sanitisation for special characters.
+* Checkout payment dropdown failed due to configuration, not UI logic.
+* UI alignment and responsiveness are consistent across major browsers.
+* All core workflows passed after fixes and retesting.
 
-This project demonstrates complete manual test design, execution, and reporting for the OpenCart UI — verifying functional workflows, detecting UI defects, and documenting results using IEEE 829 best practices.
+---
+
+## Tools and Environment
+
+* **Application:** OpenCart v4.1.0.3
+* **Execution environment:** Localhost (XAMPP)
+* **Browsers:** Chrome, Firefox, Edge
+* **Test documentation:** Excel and CSV templates
+* **Defect tracking:** Excel-based bug report
+* **Evidence:** Screenshots per module
+
+---
+
+## How to Use This Repository
+
+1. Review the test cases in `OpenCart_Manual_Test_Cases.csv`
+2. Check coverage in `OpenCart_Test_Coverage_Summary.csv`
+3. Inspect logged defects in `OpenCart_Bug_Report.xlsx`
+4. Review screenshots for execution evidence
+
+---
+
+## Author
+
+**George Petre**
+QA Engineer
+
+* GitHub: [https://github.com/GeorgeMPetre](https://github.com/GeorgeMPetre)
+* Portfolio: [https://georgempetre.github.io](https://georgempetre.github.io)
+
+---
+
+## Notes
+
+This project demonstrates end-to-end manual UI test design, execution, defect reporting, and traceability for a real-world e-commerce application. It is intended as a portfolio and learning project rather than a production release.
